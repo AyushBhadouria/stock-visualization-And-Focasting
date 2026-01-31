@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-trading-green: #10B981;
+    --color-trading-red: #EF4444;
+    --color-primary: #2563EB;
+  }
+  
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary-600 dark:bg-primary-700 text-white px-4 py-2 rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200;
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-all duration-200;
+  }
+  
+  .card:hover {
+    @apply shadow-md;
+  }
+  
+  /* Form Inputs */
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .input::placeholder {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+  
+  /* Trading Colors */
+  .text-gain {
+    @apply text-emerald-600 dark:text-emerald-400 font-semibold;
+  }
+  
+  .text-loss {
+    @apply text-red-600 dark:text-red-400 font-semibold;
+  }
+  
+  .bg-gain {
+    @apply bg-emerald-50 dark:bg-emerald-900/20;
+  }
+  
+  .bg-loss {
+    @apply bg-red-50 dark:bg-red-900/20;
+  }
+  
+  /* Interactive Elements */
+  .interactive-card {
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer;
+  }
+  
+  .interactive-card:hover {
+    @apply shadow-lg;
+  }
+  
+  /* Utility Classes */
+  .shimmer {
+    @apply animate-pulse;
+  }
+  
+  .live-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse;
+  }
+  
+  /* Smooth Transitions */
+  * {
+    @apply transition-colors duration-200;
+  }
+  
+  /* Dark Mode Specific */
+  .dark .glass {
+    @apply bg-gray-800/50 backdrop-blur-md;
+  }
+  
+  .glass {
+    @apply bg-white/50 backdrop-blur-md;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 1000px 100%;
+  }
+}
